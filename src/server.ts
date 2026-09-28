@@ -37,6 +37,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Request Logger (helps diagnose reverse proxy traffic)
+app.use((req: Request, _res: Response, next: NextFunction) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+// Health Check Endpoint
+app.get('/health', (_req: Request, res: Response) => {
+  res.status(200).send('OK - Parth Packaging Server is running healthy');
+});
+
 // Template Engine (EJS)
 const viewsPath = fs_existsSync(path.join(__dirname, 'views'))
   ? path.join(__dirname, 'views')
