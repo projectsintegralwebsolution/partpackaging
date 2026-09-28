@@ -1,0 +1,39 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Knowledge Center</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">Frequently Asked Questions</h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
+      Detailed answers covering carboy reconditioning processes, chemical compatibility, leak testing, logistics, and pricing.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-accordion">
+      <% faqs.forEach((faq, index) => { %>
+        <div class="faq-item <%= index === 0 ? 'active' : '' %>">
+          <button type="button" class="faq-question-btn" aria-expanded="<%= index === 0 ? 'true' : 'false' %>">
+            <span><%= faq.question %></span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer">
+            <%= faq.answer %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container container-narrow">
+    <%- include('../partials/quote-form') %>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

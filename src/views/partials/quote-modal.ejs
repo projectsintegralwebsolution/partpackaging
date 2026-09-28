@@ -1,0 +1,127 @@
+<dialog id="quoteModal" class="modal-dialog" aria-labelledby="modalQuoteTitle">
+  <div class="modal-content">
+    <button type="button" class="modal-close-btn" aria-label="Close dialog">×</button>
+    <div class="modal-brand-header">
+      <div class="modal-brand-left">
+        <img src="/images/parth-monogram.png" alt="Parth Packaging Monogram" class="modal-monogram-img" width="46" height="46">
+        <div>
+          <div class="modal-brand-tag">PARTH PACKAGING</div>
+          <div class="modal-brand-subtag">Commercial Reconditioning Division</div>
+        </div>
+      </div>
+      <div class="modal-badge-verified">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span>Verified B2B Inquiry</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <h3 id="modalQuoteTitle" style="font-size: 1.4rem; color: #0F172A; margin-bottom: 4px; font-weight: 800;">Request Industrial Carboys Quotation</h3>
+      <p style="font-size: 0.85rem; color: #64748B; margin-bottom: 0;">Complete your packaging specifications below. Our technical sales desk responds with contract batch pricing within 24 business hours.</p>
+    </div>
+
+    <form id="modalQuoteForm" data-ajax-quote enctype="multipart/form-data">
+      <div class="form-alert" role="alert"></div>
+
+      <div class="honey-field">
+        <label for="modal_website_url_field">Leave this empty</label>
+        <input type="text" name="website_url_field" id="modal_website_url_field" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label class="form-label" for="modal_name">Contact Person Name <span class="required">*</span></label>
+          <input type="text" id="modal_name" name="name" class="form-control" placeholder="e.g. Rajesh Sharma" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal_company">Company Name <span class="required">*</span></label>
+          <input type="text" id="modal_company" name="company" class="form-control" placeholder="e.g. Apex Chemicals" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal_mobile">Mobile Number <span class="required">*</span></label>
+          <input type="tel" id="modal_mobile" name="mobile" class="form-control" placeholder="10-digit mobile number" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal_email">Work Email <span class="required">*</span></label>
+          <input type="email" id="modal_email" name="email" class="form-control" placeholder="name@company.com" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal_city">Plant City <span class="required">*</span></label>
+          <input type="text" id="modal_city" name="city" class="form-control" placeholder="e.g. Vapi / Thane / Pune" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal_state">State <span class="required">*</span></label>
+          <select id="modal_state" name="state" class="form-control" required>
+            <option value="">Select State</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Delhi NCR">Delhi NCR</option>
+            <option value="Other">Other State</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="modal_containerType">Container Type <span class="required">*</span></label>
+          <select id="modal_containerType" name="containerType" class="form-control" required>
+            <option value="">Select Container Type</option>
+            <option value="Narrow Mouth HDPE Carboy">Narrow Mouth HDPE Carboy</option>
+            <option value="Wide Mouth HDPE Carboy">Wide Mouth HDPE Carboy</option>
+            <option value="Square Jerry Can">Square Jerry Can</option>
+            <option value="Heavy-Duty 50L Round Carboy">Heavy-Duty 50L Round Carboy</option>
+            <option value="100L Carboy">100L Carboy</option>
+            <option value="200L HDPE Drum">200L HDPE Drum</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="modal_capacity">Capacity / Volume <span class="required">*</span></label>
+          <select id="modal_capacity" name="capacity" class="form-control" required>
+            <option value="">Select Capacity</option>
+            <option value="20 Liters">20 Liters</option>
+            <option value="30 Liters">30 Liters</option>
+            <option value="35 Liters">35 Liters</option>
+            <option value="50 Liters">50 Liters (Standard)</option>
+            <option value="100 Liters">100 Liters</option>
+            <option value="200 Liters">200 Liters</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="modal_quantity">Quantity <span class="required">*</span></label>
+          <select id="modal_quantity" name="quantity" class="form-control" required>
+            <option value="">Select Quantity</option>
+            <option value="50 - 150 units">50 – 150 units</option>
+            <option value="151 - 500 units">151 – 500 units</option>
+            <option value="501 - 1,000 units">501 – 1,000 units</option>
+            <option value="1,000+ units">1,000+ units (Regular Contract)</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="modal_pickupRequired">Pickup Required?</label>
+          <select id="modal_pickupRequired" name="pickupRequired" class="form-control">
+            <option value="Yes - Need Parth Logistics Pickup">Yes – Request Parth Logistics Pickup</option>
+            <option value="No - Self Dispatch to Facility">No – Self dispatch to facility</option>
+          </select>
+        </div>
+        <div class="form-group-full">
+          <label class="form-label" for="modal_chemicalResidue">Previous Liquid / Chemical Contents</label>
+          <input type="text" id="modal_chemicalResidue" name="chemicalResidue" class="form-control" placeholder="e.g. Surfactants, Solvents, Agricultural nutrients, Resins">
+        </div>
+        <div class="form-group-full">
+          <label class="form-label" for="modal_attachment">Attach Photo or Specs (Optional, max 5MB)</label>
+          <input type="file" id="modal_attachment" name="attachment" class="form-control" accept=".jpg,.jpeg,.png,.webp,.pdf">
+        </div>
+        <div class="form-group-full">
+          <label class="form-label" for="modal_message">Specific Instructions / Notes</label>
+          <textarea id="modal_message" name="message" class="form-control" placeholder="Mention bung type requirement, venting cap preferences..."></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Submit Quotation Request
+        </button>
+      </div>
+    </form>
+  </div>
+</dialog>

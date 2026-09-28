@@ -1,0 +1,114 @@
+﻿<div class="form-card">
+  <div style="margin-bottom: 28px;">
+    <span class="section-eyebrow">Direct RFQ System</span>
+    <h3 style="font-size: 1.6rem; margin-bottom: 8px;">Request a Custom Reconditioning Quotation</h3>
+    <p style="font-size: 0.95rem; color: #64748B;">Provide your industrial container specifications below. Our technical sales engineers review batch cleaning requirements and reply with a formal proposal within 24 hours.</p>
+  </div>
+
+  <form id="inlineQuoteForm" data-ajax-quote enctype="multipart/form-data">
+    <div class="form-alert" role="alert"></div>
+
+    <div class="honey-field">
+      <label for="inline_website_url_field">Website</label>
+      <input type="text" name="website_url_field" id="inline_website_url_field" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="form-grid">
+      <div>
+        <label class="form-label" for="inline_name">Contact Person Name <span class="required">*</span></label>
+        <input type="text" id="inline_name" name="name" class="form-control" placeholder="Rajesh Sharma" required>
+      </div>
+      <div>
+        <label class="form-label" for="inline_company">Company Name <span class="required">*</span></label>
+        <input type="text" id="inline_company" name="company" class="form-control" placeholder="Apex Industrial Formulations" required>
+      </div>
+      <div>
+        <label class="form-label" for="inline_mobile">Mobile Number <span class="required">*</span></label>
+        <input type="tel" id="inline_mobile" name="mobile" class="form-control" placeholder="10-digit contact number" required>
+      </div>
+      <div>
+        <label class="form-label" for="inline_email">Work Email <span class="required">*</span></label>
+        <input type="email" id="inline_email" name="email" class="form-control" placeholder="name@company.com" required>
+      </div>
+      <div>
+        <label class="form-label" for="inline_city">City / Plant Location <span class="required">*</span></label>
+        <input type="text" id="inline_city" name="city" class="form-control" placeholder="Vapi / Thane / Pune / Ankleshwar" required>
+      </div>
+      <div>
+        <label class="form-label" for="inline_state">State <span class="required">*</span></label>
+        <select id="inline_state" name="state" class="form-control" required>
+          <option value="">Select State</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Delhi NCR">Delhi NCR</option>
+          <option value="Other">Other State</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label" for="inline_containerType">Container Type <span class="required">*</span></label>
+        <select id="inline_containerType" name="containerType" class="form-control" required>
+          <option value="">Select Type</option>
+          <option value="Narrow Mouth HDPE Carboy">Narrow Mouth HDPE Carboy</option>
+          <option value="Wide Mouth HDPE Carboy">Wide Mouth HDPE Carboy</option>
+          <option value="Square Jerry Can (20L - 35L)">Square Jerry Can (20L - 35L)</option>
+          <option value="Heavy-Duty 50L Round Carboy">Heavy-Duty 50L Round Carboy</option>
+          <option value="Large 100L Carboy">Large 100L Carboy</option>
+          <option value="200L HDPE Drum">200L HDPE Drum</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label" for="inline_capacity">Capacity / Volume <span class="required">*</span></label>
+        <select id="inline_capacity" name="capacity" class="form-control" required>
+          <option value="">Select Volume</option>
+          <option value="20 Liters">20 Liters</option>
+          <option value="25 Liters">25 Liters</option>
+          <option value="30 Liters">30 Liters</option>
+          <option value="35 Liters">35 Liters</option>
+          <option value="50 Liters">50 Liters (Standard)</option>
+          <option value="100 Liters">100 Liters</option>
+          <option value="200 Liters">200 Liters</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label" for="inline_quantity">Batch Quantity <span class="required">*</span></label>
+        <select id="inline_quantity" name="quantity" class="form-control" required>
+          <option value="">Select Quantity Range</option>
+          <option value="50 - 150 units">50 – 150 units</option>
+          <option value="151 - 500 units">151 – 500 units</option>
+          <option value="501 - 1,000 units">501 – 1,000 units</option>
+          <option value="1,001 - 3,000 units">1,001 – 3,000 units</option>
+          <option value="3,000+ units">3,000+ units (Monthly Rolling Contract)</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label" for="inline_pickupRequired">Reverse Logistics Pickup</label>
+        <select id="inline_pickupRequired" name="pickupRequired" class="form-control">
+          <option value="Yes - Need Parth Pickup Logistics">Yes – Parth Packaging Pickup</option>
+          <option value="No - Customer Dispatched">No – Customer dispatched to facility</option>
+        </select>
+      </div>
+      <div class="form-group-full">
+        <label class="form-label" for="inline_chemicalResidue">Previous Liquid / Chemical Residue</label>
+        <input type="text" id="inline_chemicalResidue" name="chemicalResidue" class="form-control" placeholder="e.g. Surfactants, Solvents, Emulsions, Resins">
+      </div>
+      <div class="form-group-full">
+        <label class="form-label" for="inline_attachment">Attach Photo or Packaging Manifest (Optional)</label>
+        <input type="file" id="inline_attachment" name="attachment" class="form-control" accept=".jpg,.jpeg,.png,.webp,.pdf">
+        <div class="form-file-hint">JPG, PNG, WEBP, PDF up to 5MB</div>
+      </div>
+      <div class="form-group-full">
+        <label class="form-label" for="inline_message">Additional Instructions / Requirements</label>
+        <textarea id="inline_message" name="message" class="form-control" placeholder="Cap type preferences, venting membranes, required turnaround time..."></textarea>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px;">
+      <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+        Submit Requirement for Quotation
+      </button>
+    </div>
+  </form>
+</div>

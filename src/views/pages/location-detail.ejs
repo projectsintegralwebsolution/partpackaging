@@ -1,0 +1,76 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow"><%= location.state %> Regional Hub</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;"><%= location.name %></h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto 28px;">
+      Dedicated B2B carboy reconditioning and bulk pickup logistics for manufacturing plants in this region.
+    </p>
+    <div>
+      <button type="button" class="btn btn-accent btn-lg btn-open-quote" data-open-quote-modal>
+        Inquire for This Hub
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;">
+      <div>
+        <span class="section-eyebrow">Cluster Capabilities</span>
+        <h2 class="section-title">Industrial Reconditioning & Pickup Logistics</h2>
+        <p style="font-size: 1.05rem; color: #334155; line-height: 1.7; margin-bottom: 20px;">
+          <%= location.logisticsCapabilities %>
+        </p>
+
+        <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Industrial Areas & Estates Covered:</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+          <% location.keyIndustrialAreas.forEach((area) => { %>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 0.925rem; color: #334155;">
+              <span style="color: var(--color-brand); font-weight: bold;">✓</span>
+              <span><%= area %></span>
+            </li>
+          <% }) %>
+        </ul>
+
+        <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Services Available in This Corridor:</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+          <% location.servicesAvailable.forEach((svc) => { %>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 0.925rem; color: #334155;">
+              <span style="color: var(--color-info); font-weight: bold;">•</span>
+              <span><%= svc %></span>
+            </li>
+          <% }) %>
+        </ul>
+
+        <div style="background: var(--color-canvas-subtle); padding: 18px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #0F172A; margin-bottom: 4px;">Standard Turnaround Time:</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: var(--color-brand);"><%= location.turnaroundTime %></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="facility-preview-card" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--color-border); position: relative;">
+          <img src="/images/facility-warehouse.jpg" alt="Dedicated Logistics Fleet & Staging for <%= location.name %>" width="700" height="450" style="width: 100%; height: 360px; object-fit: cover; display: block;" loading="lazy">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(11,19,32,0.92) 0%, rgba(11,19,32,0) 100%); padding: 22px; color: #FFFFFF;">
+            <span style="display: inline-block; background: var(--color-brand); color: #fff; font-size: 0.725rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 4px;">Logistics Network</span>
+            <h4 style="color: #fff; margin-bottom: 2px; font-size: 1.15rem;"><%= location.name %> Regional Fleet Staging</h4>
+            <p style="color: #CBD5E1; font-size: 0.85rem; margin: 0;">Regular scheduled batch pickups, digital manifest verification, and direct delivery turnaround.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container container-narrow">
+    <%- include('../partials/quote-form') %>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

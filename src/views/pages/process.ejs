@@ -1,0 +1,68 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Engineered Methodology</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">Our 7-Step Industrial Reconditioning Process</h1>
+    <p class="section-subtitle" style="max-width: 740px; margin: 0 auto;">
+      A standardized, multi-stage workflow combining automated chemical wash systems, hot air dehumidification drying, and 100% pneumatic pressure decay testing.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="process-timeline">
+      <% processSteps.forEach((step) => { %>
+        <div class="process-step-card">
+          <div class="process-step-number"><%= step.stepNumber %></div>
+          <div class="process-step-content">
+            <%
+              const stepPhotos = {
+                1: { src: '/images/process-inspection.jpg', alt: 'Ultrasonic Wall Thickness & Boroscope Inspection' },
+                2: { src: '/images/process-washing.jpg', alt: 'High Pressure Rotary Chemical Decontamination' },
+                5: { src: '/images/process-leaktest.jpg', alt: 'Digital Pneumatic Pressure Decay Leak Testing Rig' },
+                6: { src: '/images/product-accessories.jpg', alt: 'Virgin Closures, Bungs and Gaskets Fitment' },
+                7: { src: '/images/facility-warehouse.jpg', alt: 'Palletized Container Staging & Dispatch Fleet' }
+              };
+              const photo = stepPhotos[step.stepNumber];
+            %>
+
+            <h3><%= step.title %></h3>
+            <div class="process-step-subtitle"><%= step.subtitle %></div>
+            <p class="process-step-desc"><%= step.description %></p>
+
+            <% if (photo) { %>
+              <div style="margin: 16px 0; border-radius: 8px; overflow: hidden; max-height: 240px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+                <img src="<%= photo.src %>" alt="<%= photo.alt %>" width="600" height="300" style="width: 100%; height: 220px; object-fit: cover; display: block;" loading="lazy">
+              </div>
+            <% } %>
+            
+            <div class="process-details-grid">
+              <% step.technicalDetails.forEach((detail) => { %>
+                <div class="process-detail-item">
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span><%= detail %></span>
+                </div>
+              <% }) %>
+            </div>
+
+            <div class="quality-gate-badge">
+              🛡️ <%= step.qualityGate %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container container-narrow">
+    <%- include('../partials/quote-form') %>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

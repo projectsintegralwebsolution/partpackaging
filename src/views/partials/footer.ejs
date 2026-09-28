@@ -1,0 +1,71 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="footer-logo-badge" style="background: #FFFFFF; padding: 8px 16px; border-radius: 8px; display: inline-block; margin-bottom: 18px;" aria-label="<%= site.name %> Home">
+          <img src="/images/parth-packaging-logo.png" alt="Parth Packaging" width="180" height="37" style="height: 36px; width: auto; display: block;" loading="lazy">
+        </a>
+        <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+          Parth Packaging is an established B2B industrial packaging reconditioning partner in India, providing certified HDPE carboys cleaning, pneumatic leak testing, and sustainable circular logistics.
+        </p>
+        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; color: #38BDF8;">
+          ✓ Pan-India Service Coverage
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Core Services</h4>
+        <ul class="footer-links">
+          <li><a href="/carboys-reconditioning">HDPE Carboys Reconditioning</a></li>
+          <li><a href="/services">Chemical Decontamination & Wash</a></li>
+          <li><a href="/services">Bung & Gasket Replacement</a></li>
+          <li><a href="/services">Bulk Reverse Logistics</a></li>
+          <li><a href="/process">7-Step Quality Process</a></li>
+          <li><a href="/quality">Pressure Leak Testing Protocols</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Industrial Hubs</h4>
+        <ul class="footer-links">
+          <li><a href="/locations/mumbai-thane-navi-mumbai">Mumbai & Thane MIDC</a></li>
+          <li><a href="/locations/gujarat-industrial-corridor">Gujarat Chemical Belt (Vapi / Ankleshwar)</a></li>
+          <li><a href="/locations/pune-chakan-industrial">Pune & Chakan Industrial Zone</a></li>
+          <li><a href="/locations/hyderabad-telangana">Hyderabad Pharma-Chemical Hub</a></li>
+          <li><a href="/locations/chennai-tamil-nadu">Chennai Manufacturing Belt</a></li>
+          <li><a href="/locations/delhi-ncr-industrial">Delhi NCR Industrial Clusters</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Commercial Desk</h4>
+        <div class="footer-contact-info">
+          <p>
+            📍 <strong>Facility:</strong><br>
+            <%= site.address.street %><br>
+            <%= site.address.city %>, <%= site.address.state %> - <%= site.address.pincode %>
+          </p>
+          <p>
+            📞 <strong>Direct Sales:</strong> <a href="tel:<%= site.phoneClean %>" style="color: #38BDF8;"><%= site.phone %></a><br>
+            ✉️ <strong>Commercial Email:</strong> <a href="mailto:<%= site.email %>" style="color: #38BDF8;"><%= site.email %></a>
+          </p>
+          <p>
+            ⏱️ <strong>Operating Hours:</strong><br>
+            <%= site.operatingHours %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        © <%= new Date().getFullYear() %> <%= site.name %>. All rights reserved. Industrial packaging reconditioning partner.
+      </div>
+      <div class="footer-legal-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/sitemap.xml">XML Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>

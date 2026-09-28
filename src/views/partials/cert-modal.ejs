@@ -1,0 +1,46 @@
+<!-- MPCB CERTIFICATE VIEWER MODAL -->
+<dialog id="mpcbCertModal" class="modal-dialog" aria-labelledby="modalCertTitle" style="max-width: 780px;">
+  <div class="modal-content" style="padding: 28px;">
+    <button type="button" class="modal-close-btn" onclick="document.getElementById('mpcbCertModal').close()" aria-label="Close dialog">×</button>
+    <div class="modal-brand-header">
+      <div class="modal-brand-left">
+        <img src="/images/parth-monogram.png" alt="Parth Packaging" class="modal-monogram-img" width="44" height="44">
+        <div>
+          <div class="modal-brand-tag">PARTH PACKAGING</div>
+          <div class="modal-brand-subtag">Maharashtra Pollution Control Board (MPCB) License</div>
+        </div>
+      </div>
+      <div class="modal-badge-verified">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span>Verified Government License</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <h3 id="modalCertTitle" style="font-size: 1.35rem; color: #0F172A; margin-bottom: 4px; font-weight: 800;">
+        Consent to Operate & Hazardous Waste Authorization
+      </h3>
+      <p style="font-size: 0.85rem; color: #64748B; margin: 0;">
+        Official Statutory Consent No. <code>MPCB/RO(HQ)/HSMD/Amendment/P-31</code> granted under Section 26 of Water Act 1974, Section 21 of Air Act 1981, and Rule 5 of Hazardous Wastes (M, H & TM) Rules.
+      </p>
+    </div>
+
+    <div style="text-align: center; background: #0A0F1D; border-radius: 8px; padding: 12px; max-height: 65vh; overflow-y: auto; border: 1px solid #1E293B;">
+      <img src="/images/mpcb-certificate.jpg" alt="Official MPCB Certificate - Parth Packaging" style="max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);" loading="lazy">
+    </div>
+
+    <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 14px; border-top: 1px solid #E2E8F0;">
+      <div style="font-size: 0.8rem; color: #64748B;">
+        ✓ Stamped by Member Secretary, Maharashtra Pollution Control Board, Mumbai
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <a href="/images/mpcb-certificate.jpg" target="_blank" download="Parth-Packaging-MPCB-Certificate.jpg" class="btn btn-outline btn-sm">
+          ⬇ Download Copy
+        </a>
+        <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('mpcbCertModal').close()">
+          Close Viewer
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>

@@ -1,0 +1,180 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Flagship Solution</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">HDPE Carboys Reconditioning Services</h1>
+    <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 32px;">
+      Certified, leak-tested, and chemically decontaminated 20L to 100L industrial HDPE carboys engineered for chemicals, agrochemicals, paints, and manufacturing liquids.
+    </p>
+    <div style="display: flex; gap: 16px; justify-content: center;">
+      <button type="button" class="btn btn-accent btn-lg btn-open-quote" data-open-quote-modal>
+        Get Carboy Quotation
+      </button>
+      <a href="#specifications" class="btn btn-outline-white btn-lg">
+        View Specifications
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;">
+      <div>
+        <span class="section-eyebrow">Definition & Scope</span>
+        <h2 class="section-title">What is Certified Carboy Reconditioning?</h2>
+        <p style="font-size: 1.05rem; color: #334155; line-height: 1.7; margin-bottom: 16px;">
+          Carboy reconditioning is the specialized industrial process of converting used high-density polyethylene (HDPE) containers into clean, leak-tight, structurally verified packaging units ready for refilling.
+        </p>
+        <p style="color: #64748B; line-height: 1.65; margin-bottom: 20px;">
+          Rather than discarding durable polymer containers after a single shipment, our systematic refurbishment cycle strips prior chemical coatings, replaces worn closures and gaskets with brand-new virgin fittings, verifies 100% pneumatic seal integrity, and prepares the containers for reliable secondary filling.
+        </p>
+
+        <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Key Engineering Features:</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+          <% service.features.forEach((feat) => { %>
+            <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.925rem; color: #334155;">
+              <span style="color: var(--color-brand); font-weight: bold;">✓</span>
+              <span><%= feat %></span>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div>
+        <%- include('../partials/before-after') %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-subtle" id="specifications">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-eyebrow">Product Range</span>
+      <h2 class="section-title">Standard Carboy Capacities & Technical Specs</h2>
+      <p class="section-subtitle">We recondition both narrow-mouth and wide-mouth HDPE carboys across all standard Indian industrial dimensions.</p>
+    </div>
+
+    <div class="quality-table-wrap">
+      <table class="quality-table">
+        <thead>
+          <tr>
+            <th>Nominal Capacity</th>
+            <th>Container Configuration</th>
+            <th>Mouth / Thread Size</th>
+            <th>Closure Hardware</th>
+            <th>Typical Industry Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>20 Liters / 25 Liters</strong></td>
+            <td>Square Jerry Can / Round Carboy</td>
+            <td>DIN 51 / DIN 61 Thread</td>
+            <td>New Virgin Cap + Tamper Tear Ring</td>
+            <td>Specialty chemicals, coolants, liquid detergents</td>
+          </tr>
+          <tr>
+            <td><strong>30 Liters / 35 Liters</strong></td>
+            <td>Narrow Mouth with Heavy Handle</td>
+            <td>DIN 61 Sealing Ring</td>
+            <td>Virgin Bung with EPDM Gasket</td>
+            <td>Agrochemicals, acids, liquid fertilizers</td>
+          </tr>
+          <tr>
+            <td><strong>50 Liters (Standard)</strong></td>
+            <td>Narrow Mouth / Wide Mouth</td>
+            <td>DIN 61 / DIN 71 Thread</td>
+            <td>Venting Breather Cap / Solid Bung</td>
+            <td>Resins, paints, chemical bulk intermediates</td>
+          </tr>
+          <tr>
+            <td><strong>100 Liters</strong></td>
+            <td>Large Industrial Carboy</td>
+            <td>Wide Mouth with Lifting Rings</td>
+            <td>Heavy-Duty Threaded Bung + Viton Seal</td>
+            <td>Textile chemicals, water treatment coagulants</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- VISUAL PRODUCT SHOWCASE -->
+    <div style="margin-top: 50px;">
+      <h3 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem;">Visual Container Catalogue</h3>
+      <div class="product-showcase-grid">
+        <div class="product-showcase-card">
+          <div class="product-showcase-thumb">
+            <img src="/images/product-tight-head.jpg" alt="210L Tight Head HDPE Chemical Drum" width="400" height="300" loading="lazy">
+          </div>
+          <div class="product-showcase-info">
+            <h4 class="product-showcase-title">210L Tight Head HDPE Carboy</h4>
+            <p class="product-showcase-meta">Decontaminated high-molecular weight polymer drum with twin bung closures and leak-tested seal.</p>
+            <ul class="product-showcase-specs">
+              <li><span>Volume:</span> <strong>210 Litres</strong></li>
+              <li><span>UN Rating:</span> <strong>1H1 / Y1.9 / 250</strong></li>
+              <li><span>Application:</span> <strong>Corrosives & Acids</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-showcase-card">
+          <div class="product-showcase-thumb">
+            <img src="/images/product-open-top.jpg" alt="210L Open Top Plastic Drum with Clamp Ring" width="400" height="300" loading="lazy">
+          </div>
+          <div class="product-showcase-info">
+            <h4 class="product-showcase-title">210L Open Top Drum with Clamp</h4>
+            <p class="product-showcase-meta">Removable lid with lever-locking galvanized steel clamp and continuous EPDM sealing gasket.</p>
+            <ul class="product-showcase-specs">
+              <li><span>Volume:</span> <strong>210 Litres</strong></li>
+              <li><span>UN Rating:</span> <strong>1H2 / Y1.6 / 150</strong></li>
+              <li><span>Application:</span> <strong>Resins, Powders, Slurries</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-showcase-card">
+          <div class="product-showcase-thumb">
+            <img src="/images/product-ibc-tote.jpg" alt="1000L Composite Intermediate Bulk Container" width="400" height="300" loading="lazy">
+          </div>
+          <div class="product-showcase-info">
+            <h4 class="product-showcase-title">1000L Composite IBC Tote</h4>
+            <p class="product-showcase-meta">Reconditioned composite container with heavy tubular grid cage and 2" bottom discharge tap.</p>
+            <ul class="product-showcase-specs">
+              <li><span>Volume:</span> <strong>1,000 Litres</strong></li>
+              <li><span>Frame:</span> <strong>Galvanized Tubular Grid</strong></li>
+              <li><span>Application:</span> <strong>Bulk Solvents & Liquid Base</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-showcase-card">
+          <div class="product-showcase-thumb">
+            <img src="/images/product-accessories.jpg" alt="Carboy Closures, Bungs, Gaskets & Tools" width="400" height="300" loading="lazy">
+          </div>
+          <div class="product-showcase-info">
+            <h4 class="product-showcase-title">Bungs, Gaskets & Breathers</h4>
+            <p class="product-showcase-meta">Complete set of new virgin DIN bungs, tamper rings, Viton O-rings, and microporous vent plugs.</p>
+            <ul class="product-showcase-specs">
+              <li><span>Threads:</span> <strong>DIN 51 / DIN 61 / Buttress</strong></li>
+              <li><span>Seals:</span> <strong>Chemical Grade Viton / EPDM</strong></li>
+              <li><span>Integrity:</span> <strong>Torque Calibrated</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container container-narrow">
+    <%- include('../partials/quote-form') %>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

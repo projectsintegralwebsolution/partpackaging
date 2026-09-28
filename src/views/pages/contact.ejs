@@ -1,0 +1,101 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Direct Commercial Desk</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">Contact Parth Packaging</h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
+      Get in touch with our commercial sales engineers for bulk carboys reconditioning quotations, pickup requests, and facility visits.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px;">
+      <div>
+        <div class="form-card">
+          <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Send a Direct Message</h2>
+          <p style="font-size: 0.9rem; color: #64748B; margin-bottom: 24px;">Complete the form below for commercial or general inquiries.</p>
+
+          <form id="contactForm" data-ajax-contact>
+            <div class="form-alert" role="alert"></div>
+
+            <div class="honey-field">
+              <label for="contact_website_url_field">Website</label>
+              <input type="text" name="website_url_field" id="contact_website_url_field" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div>
+                <label class="form-label" for="contact_name">Full Name <span class="required">*</span></label>
+                <input type="text" id="contact_name" name="name" class="form-control" placeholder="Rajesh Sharma" required>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div>
+                  <label class="form-label" for="contact_company">Company Name</label>
+                  <input type="text" id="contact_company" name="company" class="form-control" placeholder="Apex Industrial">
+                </div>
+                <div>
+                  <label class="form-label" for="contact_mobile">Mobile Number <span class="required">*</span></label>
+                  <input type="tel" id="contact_mobile" name="mobile" class="form-control" placeholder="10-digit number" required>
+                </div>
+              </div>
+              <div>
+                <label class="form-label" for="contact_email">Corporate Email <span class="required">*</span></label>
+                <input type="email" id="contact_email" name="email" class="form-control" placeholder="name@company.com" required>
+              </div>
+              <div>
+                <label class="form-label" for="contact_subject">Subject</label>
+                <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="Carboys Reconditioning Inquiry">
+              </div>
+              <div>
+                <label class="form-label" for="contact_message">Your Message <span class="required">*</span></label>
+                <textarea id="contact_message" name="message" class="form-control" placeholder="Describe your monthly volumes, container types, and requirements..." required></textarea>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                  Send Commercial Enquiry
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div style="background: var(--color-canvas-subtle); border: 1px solid var(--color-border); border-radius: 16px; padding: 36px; margin-bottom: 28px;">
+          <span class="section-eyebrow">Corporate Headquarters</span>
+          <h3 style="font-size: 1.35rem; margin-bottom: 20px;">Parth Packaging India</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 18px; font-size: 0.95rem;">
+            <p>
+              📍 <strong>Facility Address:</strong><br>
+              <%= site.address.street %><br>
+              <%= site.address.city %>, <%= site.address.state %> - <%= site.address.pincode %>, India
+            </p>
+            <p>
+              📞 <strong>Sales Desk:</strong> <a href="tel:<%= site.phoneClean %>" style="color: var(--color-brand); font-weight: 600;"><%= site.phone %></a><br>
+              ✉️ <strong>Commercial Email:</strong> <a href="mailto:<%= site.email %>" style="color: var(--color-brand);"><%= site.email %></a>
+            </p>
+            <p>
+              ⏱️ <strong>Operating Hours:</strong><br>
+              <%= site.operatingHours %>
+            </p>
+          </div>
+        </div>
+
+        <div class="facility-preview-card" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--color-border); position: relative;">
+          <img src="/images/facility-warehouse.jpg" alt="Parth Packaging Facility & Staging Yard, Boisar MIDC" width="600" height="350" style="width: 100%; height: 260px; object-fit: cover; display: block;" loading="lazy">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(11,19,32,0.92) 0%, rgba(11,19,32,0) 100%); padding: 18px; color: #FFFFFF;">
+            <span style="display: inline-block; background: var(--color-brand); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; margin-bottom: 4px;">MIDC Industrial Hub</span>
+            <h4 style="color: #fff; margin-bottom: 4px; font-size: 1.05rem;">Boisar / Tarapur Industrial Corridor</h4>
+            <p style="color: #CBD5E1; font-size: 0.825rem; margin: 0;">Palghar District, Maharashtra. Strategic connectivity to Western Express Highway & Gujarat corridor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/layout-bottom') %>

@@ -1,0 +1,75 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow"><%= industry.badge %></span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;"><%= industry.title %></h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto 28px;">
+      <%= industry.shortDesc %>
+    </p>
+    <div>
+      <button type="button" class="btn btn-accent btn-lg btn-open-quote" data-open-quote-modal>
+        Inquire for <%= industry.title %>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;">
+      <div>
+        <span class="section-eyebrow">Industry Specifics</span>
+        <h2 class="section-title">Packaging Requirements & Decontamination Protocols</h2>
+        <p style="font-size: 1.05rem; color: #334155; line-height: 1.7; margin-bottom: 20px;">
+          <%= industry.overview %>
+        </p>
+        
+        <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Challenges Solved by Parth Packaging:</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+          <% industry.challengesSolved.forEach((ch) => { %>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 0.925rem; color: #334155;">
+              <span style="color: var(--color-brand); font-weight: bold;">✓</span>
+              <span><%= ch %></span>
+            </li>
+          <% }) %>
+        </ul>
+
+        <div style="background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 16px; border-radius: 0 8px 8px 0; margin-top: 24px;">
+          <p style="font-size: 0.85rem; color: #92400E; margin: 0;">
+            <strong>Compliance Note:</strong> <%= industry.complianceNotes %>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <%
+          let indImg = '/images/product-tight-head.jpg';
+          if (industry.slug.includes('paint') || industry.slug.includes('coating') || industry.slug.includes('resin')) {
+            indImg = '/images/product-open-top.jpg';
+          } else if (industry.slug.includes('bulk') || industry.slug.includes('intermediate') || industry.slug.includes('pharma')) {
+            indImg = '/images/product-ibc-tote.jpg';
+          }
+        %>
+        <div class="facility-preview-card" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--color-border); position: relative;">
+          <img src="<%= indImg %>" alt="Certified Packaging for <%= industry.title %>" width="700" height="450" style="width: 100%; height: 380px; object-fit: cover; display: block;" loading="lazy">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(11,19,32,0.92) 0%, rgba(11,19,32,0) 100%); padding: 22px; color: #FFFFFF;">
+            <span style="display: inline-block; background: var(--color-brand); color: #fff; font-size: 0.725rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 4px;"><%= industry.title %> Packaging</span>
+            <h4 style="color: #fff; margin-bottom: 2px; font-size: 1.15rem;">Engineered Container Solution</h4>
+            <p style="color: #CBD5E1; font-size: 0.85rem; margin: 0;">Chemically compatible decontamination and 100% pneumatic pressure testing benchmark.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container container-narrow">
+    <%- include('../partials/quote-form') %>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

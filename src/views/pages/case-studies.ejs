@@ -1,0 +1,36 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Proven Outcomes</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">B2B Case Studies & Results</h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
+      Examine real commercial scenarios demonstrating how industrial manufacturers reduce packaging budgets by 40% to 55%.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="case-studies-grid">
+      <% caseStudies.forEach((cs) => { %>
+        <div class="case-study-card">
+          <div class="case-study-meta"><%= cs.clientIndustry %> • <%= cs.region %></div>
+          <h2 class="case-study-title" style="font-size: 1.35rem;"><%= cs.title %></h2>
+          <p class="case-study-challenge"><strong>Challenge:</strong> <%= cs.challenge %></p>
+          <p class="case-study-solution"><strong>Solution:</strong> <%= cs.solution %></p>
+          
+          <div class="case-study-results">
+            <span class="case-result-pill">✓ <%= cs.results.costSaved %></span>
+            <span class="case-result-pill">✓ <%= cs.results.turnaround %></span>
+            <span class="case-result-pill">✓ <%= cs.results.wasteDiverted %></span>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

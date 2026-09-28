@@ -1,0 +1,46 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Pan-India Network</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">Industrial Service Corridors</h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
+      Scheduled bulk pickup and certified reconditioning logistics connecting chemical, pharmaceutical, and manufacturing clusters across India.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+      <% locations.forEach((loc) => { %>
+        <div class="stat-card" style="display: flex; flex-direction: column;">
+          <div style="font-size: 0.8rem; font-weight: 700; color: #0F766E; text-transform: uppercase; margin-bottom: 6px;"><%= loc.state %></div>
+          <h2 style="font-size: 1.35rem; margin-bottom: 12px;"><%= loc.name %></h2>
+          <p style="font-size: 0.9rem; color: #64748B; margin-bottom: 16px;"><%= loc.logisticsCapabilities %></p>
+          
+          <div style="margin-bottom: 20px;">
+            <div style="font-size: 0.775rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #0F172A; margin-bottom: 6px;">Key Industrial Areas Served:</div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: #475569;">
+              <% loc.keyIndustrialAreas.slice(0, 4).forEach((area) => { %>
+                <li>• <%= area %></li>
+              <% }) %>
+            </ul>
+          </div>
+
+          <div style="font-size: 0.85rem; font-weight: 600; color: #0284C7; margin-bottom: 16px; margin-top: auto;">
+            ⏱️ Turnaround: <%= loc.turnaroundTime %>
+          </div>
+
+          <a href="/locations/<%= loc.slug %>" class="btn btn-primary" style="width: 100%;">
+            View <%= loc.name.split('(')[0].trim() %> Hub →
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

@@ -1,0 +1,35 @@
+<%- include('../partials/layout-top') %>
+
+<article class="section" style="padding-top: 40px;">
+  <div class="container container-narrow">
+    <div style="margin-bottom: 30px;">
+      <span class="section-eyebrow"><%= post.category %></span>
+      <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 14px; line-height: 1.25;"><%= post.title %></h1>
+      <div style="display: flex; gap: 16px; font-size: 0.875rem; color: #64748B; border-bottom: 1px solid var(--color-border); padding-bottom: 18px;">
+        <span>Published: <%= post.date %></span>
+        <span>•</span>
+        <span><%= post.readTime %></span>
+        <span>•</span>
+        <span>By <%= post.author %></span>
+      </div>
+    </div>
+
+    <div style="font-size: 1.05rem; color: #334155; line-height: 1.8; margin-bottom: 50px;">
+      <%- post.contentHtml %>
+    </div>
+
+    <div style="background: var(--color-canvas-subtle); padding: 32px; border-radius: 12px; border: 1px solid var(--color-border); margin-bottom: 60px;">
+      <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Explore Reconditioning for Your Plant</h3>
+      <p style="font-size: 0.95rem; color: #64748B; margin-bottom: 20px;">
+        Speak with our engineering team to calculate your enterprise packaging savings and schedule a trial batch pickup.
+      </p>
+      <button type="button" class="btn btn-primary btn-open-quote" data-open-quote-modal>
+        Request a Trial Batch Quote
+      </button>
+    </div>
+  </div>
+</article>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

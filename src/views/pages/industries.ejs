@@ -1,0 +1,53 @@
+<%- include('../partials/layout-top') %>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <span class="section-eyebrow">Target Sectors</span>
+    <h1 style="color: #FFFFFF; margin-bottom: 16px;">Industries We Serve</h1>
+    <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
+      Tailored packaging reconditioning, chemical decontamination, and closure systems designed for critical manufacturing sectors.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="industries-grid">
+      <% industries.forEach((ind) => { %>
+        <div class="industry-card">
+          <span class="industry-card-badge"><%= ind.badge %></span>
+          <h3 class="industry-card-title"><%= ind.title %></h3>
+          <p class="industry-card-desc"><%= ind.overview %></p>
+
+          <div class="industry-containers-list">
+            <div class="industry-containers-title">Typical Containers Refurbished:</div>
+            <% ind.typicalContainers.forEach((c) => { %>
+              <div class="industry-container-item">
+                <span>•</span>
+                <span><%= c %></span>
+              </div>
+            <% }) %>
+          </div>
+
+          <h5 style="font-size: 0.9rem; margin-bottom: 6px; color: #0F172A;">Specific Solutions:</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;">
+            <% ind.challengesSolved.forEach((ch) => { %>
+              <li style="font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <span style="color: var(--color-brand); font-weight: bold;">✓</span>
+                <span><%= ch %></span>
+              </li>
+            <% }) %>
+          </ul>
+
+          <a href="/industries/<%= ind.slug %>" class="btn btn-outline" style="margin-top: auto; width: 100%;">
+            View <%= ind.title %> Details →
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta-banner') %>
+
+<%- include('../partials/layout-bottom') %>

@@ -1,0 +1,59 @@
+<div class="calculator-card">
+  <div class="calculator-grid">
+    <div>
+      <span class="section-eyebrow">B2B Financial Estimator</span>
+      <h3 style="font-size: 1.65rem; margin-bottom: 12px;">Packaging ROI & Annual Cost Savings Calculator</h3>
+      <p style="font-size: 0.95rem; color: #64748B; margin-bottom: 28px;">
+        See how much your enterprise can save annually by switching recurring liquid packaging dispatches from virgin HDPE carboys to Parth certified reconditioned containers.
+      </p>
+
+      <div class="calc-control">
+        <div class="calc-label">
+          <span>Monthly Container Volume:</span>
+          <span class="calc-value-display" id="calcVolumeDisplay">1,000 units / month</span>
+        </div>
+        <input type="range" id="calcVolumeSlider" class="calc-range" min="100" max="10000" step="50" value="1000" aria-label="Monthly Carboy Consumption">
+      </div>
+
+      <div class="form-grid" style="margin-top: 20px;">
+        <div>
+          <label class="form-label" for="calcNewCost">Current Cost of New Carboy (₹)</label>
+          <input type="number" id="calcNewCost" class="form-control" value="850" min="400" max="2500" step="10">
+        </div>
+        <div>
+          <label class="form-label" for="calcRecondCost">Parth Reconditioning Cost (₹)</label>
+          <input type="number" id="calcRecondCost" class="form-control" value="420" min="200" max="1200" step="10">
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-results-card">
+      <div class="calc-savings-banner">
+        <div style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 6px;">
+          Estimated Annual Cost Savings
+        </div>
+        <div class="calc-savings-amount" id="calcSavingsAmount">₹ 51,60,000</div>
+        <div class="calc-savings-subtext" id="calcSavingsPercent">51% Cost Reduction</div>
+      </div>
+
+      <div class="calc-breakdown-row">
+        <span>Annual Packaging Volume:</span>
+        <strong id="calcAnnualUnits" style="color: #FFFFFF;">12,000 units</strong>
+      </div>
+      <div class="calc-breakdown-row">
+        <span>Virgin Packaging Annual Spend:</span>
+        <strong id="calcAnnualNewSpend" style="color: #EF4444;">₹ 1,02,00,000</strong>
+      </div>
+      <div class="calc-breakdown-row">
+        <span>Parth Reconditioned Spend:</span>
+        <strong id="calcAnnualRecondSpend" style="color: #10B981;">₹ 50,40,000</strong>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button type="button" class="btn btn-accent btn-open-quote" style="width: 100%;" data-open-quote-modal>
+          Lock In This Packaging Rate
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

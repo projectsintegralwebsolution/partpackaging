@@ -1,0 +1,31 @@
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+  <div class="drawer-header">
+    <a href="/" class="brand-logo" aria-label="<%= site.name %> Home">
+      <img src="/images/parth-packaging-logo.png" alt="Parth Packaging" width="160" height="33" style="height: 32px; width: auto; display: block;">
+    </a>
+    <button type="button" class="drawer-close" id="drawerCloseBtn" aria-label="Close Navigation">×</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="/" class="<%= activeNav === 'home' ? 'active' : '' %>">Home</a>
+    <a href="/about" class="<%= activeNav === 'about' ? 'active' : '' %>">About Us</a>
+    <a href="/carboys-reconditioning" class="<%= activeNav === 'carboys-reconditioning' ? 'active' : '' %>">Carboys Reconditioning</a>
+    <a href="/services" class="<%= activeNav === 'services' ? 'active' : '' %>">All Services</a>
+    <a href="/process" class="<%= activeNav === 'process' ? 'active' : '' %>">7-Step Process</a>
+    <a href="/industries" class="<%= activeNav === 'industries' ? 'active' : '' %>">Industries We Serve</a>
+    <a href="/quality" class="<%= activeNav === 'quality' ? 'active' : '' %>">Quality & Testing</a>
+    <a href="/gallery" class="<%= activeNav === 'gallery' ? 'active' : '' %>">Facility Gallery</a>
+    <a href="/case-studies" class="<%= activeNav === 'case-studies' ? 'active' : '' %>">Case Studies</a>
+    <a href="/locations" class="<%= activeNav === 'locations' ? 'active' : '' %>">Pan-India Hubs</a>
+    <a href="/blog" class="<%= activeNav === 'blog' ? 'active' : '' %>">Technical Blog</a>
+    <a href="/faq" class="<%= activeNav === 'faq' ? 'active' : '' %>">FAQs</a>
+    <a href="/contact" class="<%= activeNav === 'contact' ? 'active' : '' %>">Contact Us</a>
+  </nav>
+  <div class="drawer-footer">
+    <button type="button" class="btn btn-primary btn-open-quote" style="width: 100%; margin-bottom: 12px;" data-open-quote-modal>
+      Request a Quotation
+    </button>
+    <p style="font-size: 0.85rem; color: #64748B; margin-bottom: 6px;">📞 Direct: <a href="tel:<%= site.phoneClean %>"><%= site.phone %></a></p>
+    <p style="font-size: 0.85rem; color: #64748B;">✉️ Email: <a href="mailto:<%= site.email %>"><%= site.email %></a></p>
+  </div>
+</div>

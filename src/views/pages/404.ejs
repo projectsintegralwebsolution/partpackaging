@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/meta-head') %>
+</head>
+<body>
+  <%- include('../partials/top-bar') %>
+  <%- include('../partials/header') %>
+  <%- include('../partials/mobile-drawer') %>
+
+  <main id="mainContent" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 60px 0;">
+    <div class="container text-center">
+      <div style="font-family: var(--font-heading); font-size: 6rem; font-weight: 800; color: var(--color-brand); line-height: 1; margin-bottom: 12px;">404</div>
+      <h1 style="font-size: 2rem; margin-bottom: 16px;">Page Not Found</h1>
+      <p style="color: #64748B; max-width: 500px; margin: 0 auto 30px;">
+        The industrial page or document you are looking for has been moved or does not exist.
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center;">
+        <a href="/" class="btn btn-primary">Return to Homepage</a>
+        <a href="/carboys-reconditioning" class="btn btn-outline">Carboys Reconditioning</a>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <%- include('../partials/mobile-action-bar') %>
+  <%- include('../partials/quote-modal') %>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
