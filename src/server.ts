@@ -1,4 +1,4 @@
-﻿import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
@@ -40,13 +40,23 @@ app.use(express.urlencoded({ extended: true }));
 // Template Engine (EJS)
 const viewsPath = fs_existsSync(path.join(__dirname, 'views'))
   ? path.join(__dirname, 'views')
-  : path.join(__dirname, '..', 'src', 'views');
+  : (fs_existsSync(path.join(__dirname, '..', 'dist', 'views'))
+      ? path.join(__dirname, '..', 'dist', 'views')
+      : (fs_existsSync(path.join(__dirname, '..', 'src', 'views'))
+          ? path.join(__dirname, '..', 'src', 'views')
+          : path.join(process.cwd(), 'src', 'views')));
 
 app.set('views', viewsPath);
 app.set('view engine', 'ejs');
 
 // Static Assets
-const publicPath = path.join(process.cwd(), 'public');
+const publicPath = fs_existsSync(path.join(__dirname, 'public'))
+  ? path.join(__dirname, 'public')
+  : (fs_existsSync(path.join(__dirname, '..', 'public'))
+      ? path.join(__dirname, '..', 'public')
+      : (fs_existsSync(path.join(process.cwd(), 'public'))
+          ? path.join(process.cwd(), 'public')
+          : path.join(__dirname, '..', 'dist', 'public')));
 app.use(express.static(publicPath, { maxAge: '7d' }));
 
 // Attach global locals
