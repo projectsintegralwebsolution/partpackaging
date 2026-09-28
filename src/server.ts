@@ -111,9 +111,9 @@ function fs_existsSync(p: string): boolean {
 }
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
+  app.listen(Number(PORT) || 3000, '0.0.0.0', () => {
     console.log(`====================================================`);
-    console.log(`🚀 Parth Packaging Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Parth Packaging Server running on http://0.0.0.0:${PORT}`);
     console.log(`🏭 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📦 Pan-India Carboys Reconditioning Portal Ready`);
     console.log(`====================================================`);
