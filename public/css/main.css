@@ -1217,5 +1217,351 @@ textarea.form-control { min-height: 110px; resize: vertical; }
   color: #FFFFFF;
 }
 
+/* ==========================================================================
+   RESPONSIVE GRIDS & ENHANCED MOBILE-FIRST OPTIMIZATIONS
+   ========================================================================== */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.eco-mpcb-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.hotspot-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.testimonials-grid,
+.locations-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 28px;
+}
+
+/* Responsive Content & Form Grid Utilities */
+.content-media-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+.content-media-grid.reverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+}
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.stats-2col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .mobile-action-bar {
+    display: grid !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1500;
+  }
+  .about-intro-grid,
+  .eco-mpcb-grid,
+  .content-media-grid,
+  .content-media-grid.reverse,
+  .contact-page-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 42px 0 !important;
+  }
+  .section-lg {
+    padding: 48px 0 !important;
+  }
+  .container {
+    padding: 0 16px !important;
+  }
+  
+  /* Compact Top Bar on Mobile */
+  .top-bar {
+    padding: 6px 0 !important;
+    font-size: 0.75rem !important;
+  }
+  .top-bar-inner {
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .top-bar-contact {
+    display: none !important;
+  }
+  
+  /* Header on Mobile */
+  .site-header {
+    height: 60px !important;
+  }
+  .site-header-inner {
+    padding: 0 16px !important;
+  }
+  .header-logo-img {
+    height: 30px !important;
+    max-width: 135px !important;
+  }
+  .header-actions .btn-open-quote {
+    display: none !important;
+  }
+  .mobile-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+  
+  /* Hero Slider on Mobile */
+  .hero-slider-section {
+    min-height: auto !important;
+  }
+  .hero-slider-track {
+    min-height: auto !important;
+  }
+  .hero-slide {
+    min-height: auto !important;
+    padding: 24px 0 38px !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .hero-slide-title {
+    font-size: clamp(1.45rem, 5.5vw, 1.95rem) !important;
+    margin-bottom: 10px !important;
+    line-height: 1.25 !important;
+  }
+  .hero-slide-desc {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-cta-group .btn {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+    padding: 12px 20px !important;
+  }
+  .hero-trust-strip {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px !important;
+    padding-top: 14px !important;
+  }
+  .hero-trust-item {
+    font-size: 0.75rem !important;
+  }
+  .hero-visual-card {
+    padding: 14px !important;
+  }
+  .hero-specs-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px !important;
+  }
+  .hero-spec-item {
+    padding: 8px !important;
+  }
+  .hero-spec-label {
+    font-size: 0.675rem !important;
+  }
+  .hero-spec-value {
+    font-size: 0.775rem !important;
+  }
+  .hero-slider-controls {
+    bottom: 8px !important;
+  }
+  .hero-arrow-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  /* About Section Grid on Mobile */
+  .about-intro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .about-intro-grid .btn {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  /* MPCB Environmental Section on Mobile */
+  .eco-mpcb-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  /* Inspection Bench on Mobile */
+  .hotspot-viewer-container {
+    padding: 16px 12px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .hotspot-viewer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .hotspot-tab {
+    padding: 8px 6px !important;
+    font-size: 0.75rem !important;
+    text-align: center;
+  }
+  .hotspot-card {
+    padding: 18px 14px !important;
+  }
+  .hotspot-specs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  
+  /* Comparison Slider on Mobile */
+  .comparison-slider-wrap {
+    height: clamp(240px, 60vw, 320px) !important;
+  }
+  .slider-badge {
+    bottom: 12px !important;
+    padding: 4px 8px !important;
+    font-size: 0.675rem !important;
+  }
+  .slider-badge-before {
+    right: 10px !important;
+  }
+  .slider-badge-after {
+    left: 10px !important;
+  }
+  
+  /* Compatibility Tool on Mobile */
+  .compat-tool-card {
+    padding: 18px 14px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .compat-chips-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .compat-chip-btn {
+    padding: 12px 14px !important;
+    font-size: 0.85rem !important;
+  }
+  .compat-step-pill {
+    padding: 4px 8px !important;
+  }
+  .compat-step-title {
+    font-size: 0.775rem !important;
+  }
+  .compat-result-panel {
+    padding: 18px 14px !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .compat-result-specs {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  
+  /* ROI Calculator on Mobile */
+  .calculator-card {
+    padding: 18px 14px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .calculator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .calc-results-card {
+    padding: 20px 16px !important;
+  }
+  .calc-savings-amount {
+    font-size: clamp(1.75rem, 6.5vw, 2.35rem) !important;
+  }
+  .calc-breakdown-row {
+    font-size: 0.825rem !important;
+  }
+  
+  /* Product Cards & Showcase on Mobile */
+  .product-showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .product-showcase-card {
+    border-radius: var(--radius-lg) !important;
+  }
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .industries-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .testimonials-grid,
+  .locations-hub-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  /* Dialog & Modals on Mobile */
+  .modal-dialog {
+    width: 94vw !important;
+    max-width: 94vw !important;
+    margin: auto !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .modal-content {
+    padding: 18px 14px !important;
+  }
+  .form-control,
+  .form-select {
+    font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
+    min-height: 44px !important;
+  }
+  .form-row-2col,
+  .stats-2col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
 @media print { .site-header, .top-bar, .mobile-action-bar, .site-footer, .btn, .modal-dialog, .floating-action-hub { display: none !important; } body { color: #000; background: #FFF; } }
