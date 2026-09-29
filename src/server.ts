@@ -1,14 +1,14 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
-import dotenv from 'dotenv';
 import helmet from 'helmet';
 import compression from 'compression';
 import cors from 'cors';
 import webRoutes from './routes/webRoutes';
 import apiRoutes from './routes/apiRoutes';
 import { siteConfig } from './config/site';
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;

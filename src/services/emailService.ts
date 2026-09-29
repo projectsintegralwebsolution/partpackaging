@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
@@ -13,31 +16,28 @@ export interface ContactPayload {
   message: string;
 }
 
-const smtpConfig = {
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: parseInt(process.env.SMTP_PORT || '465', 10),
-  secure: process.env.SMTP_SECURE !== undefined ? process.env.SMTP_SECURE === 'true' : true,
-  auth: {
-    user: process.env.SMTP_USER || 'integralwebsolution@gmail.com',
-    pass: process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '**********'
-  }
-};
+function getMailFrom(): string {
+  return process.env.MAIL_FROM || `"${siteConfig.name}" <${(process.env.SMTP_USER || 'integralwebsolution@gmail.com').trim()}>`;
+}
 
-const mailFrom = process.env.MAIL_FROM || `"${siteConfig.name}" <integralwebsolution@gmail.com>`;
-const businessReplyTo = process.env.MAIL_REPLY_TO || 'pratapbhanushali23@yahoo.com';
+function getReplyTo(): string {
+  return process.env.MAIL_REPLY_TO || 'pratapbhanushali23@yahoo.com';
+}
 
-// 3-Way Notification System Recipients:
-// 1. Admin Email (Internal monitoring recipient ONLY - strictly hidden from the public website)
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'princekumarjha80@gmail.com';
-// 2. Client / Website Owner Email (Business contact & inquiry recipient)
-const CLIENT_EMAIL = process.env.CLIENT_EMAIL || 'pratapbhanushali23@yahoo.com';
-// Combined business recipients for inward inquiries:
-const BUSINESS_RECIPIENTS = [ADMIN_EMAIL, CLIENT_EMAIL].join(', ');
+function getAdminEmail(): string {
+  return process.env.ADMIN_EMAIL || 'princekumarjha80@gmail.com';
+}
 
-let transporter: nodemailer.Transporter | null = null;
+function getClientEmail(): string {
+  return process.env.CLIENT_EMAIL || 'pratapbhanushali23@yahoo.com';
+}
+
+function getBusinessRecipients(): string {
+  return [getAdminEmail(), getClientEmail()].join(', ');
+}
 
 function hasValidCredentials(): boolean {
-  const pass = process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '';
+  const pass = (process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '').trim();
   if (!pass || pass.includes('*') || pass === 'your_smtp_password' || pass.length < 8) {
     return false;
   }
@@ -45,10 +45,18 @@ function hasValidCredentials(): boolean {
 }
 
 function getTransporter() {
-  if (!transporter) {
-    transporter = nodemailer.createTransport(smtpConfig);
-  }
-  return transporter;
+  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+  const port = parseInt(process.env.SMTP_PORT || '465', 10);
+  const secure = process.env.SMTP_SECURE !== undefined ? process.env.SMTP_SECURE === 'true' : true;
+  const user = (process.env.SMTP_USER || 'integralwebsolution@gmail.com').trim();
+  const pass = (process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '').trim();
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass }
+  });
 }
 
 function logEmailLocally(type: string, to: string, subject: string, bodyText: string) {
@@ -153,10 +161,16 @@ export async function sendQuoteNotification(quote: QuotePayload, attachment?: Ex
     </div>
   `;
 
+  const adminEmail = getAdminEmail();
+  const clientEmail = getClientEmail();
+  const businessRecipients = getBusinessRecipients();
+  const mailFrom = getMailFrom();
+  const replyTo = getReplyTo();
+
   if (!hasValidCredentials()) {
     console.log('[EmailService] SMTP credentials contain placeholder password (**********). Safely queued 3-way quote dispatch to local outbox (logs/email-outbox.log).');
-    logEmailLocally('1_ADMIN_NOTIFICATION', ADMIN_EMAIL, adminSubject, JSON.stringify(quote, null, 2));
-    logEmailLocally('2_CLIENT_NOTIFICATION', CLIENT_EMAIL, adminSubject, JSON.stringify(quote, null, 2));
+    logEmailLocally('1_ADMIN_NOTIFICATION', adminEmail, adminSubject, JSON.stringify(quote, null, 2));
+    logEmailLocally('2_CLIENT_NOTIFICATION', clientEmail, adminSubject, JSON.stringify(quote, null, 2));
     logEmailLocally('3_USER_ACKNOWLEDGEMENT', quote.email, userSubject, `Auto-reply sent to ${quote.name} (${quote.email})`);
     return true;
   }
@@ -167,7 +181,7 @@ export async function sendQuoteNotification(quote: QuotePayload, attachment?: Ex
     // 1 & 2: Send to Admin and Client (reply responds to prospective customer)
     const adminMailOptions: any = {
       from: mailFrom,
-      to: BUSINESS_RECIPIENTS,
+      to: businessRecipients,
       replyTo: quote.email,
       subject: adminSubject,
       html: adminHtml
@@ -187,7 +201,7 @@ export async function sendQuoteNotification(quote: QuotePayload, attachment?: Ex
       await client.sendMail({
         from: mailFrom,
         to: quote.email,
-        replyTo: businessReplyTo,
+        replyTo: replyTo,
         subject: userSubject,
         html: userHtml
       });
@@ -196,8 +210,8 @@ export async function sendQuoteNotification(quote: QuotePayload, attachment?: Ex
     return true;
   } catch (err) {
     console.error('[EmailService] SMTP send error (gracefully falling back to local log):', err);
-    logEmailLocally('1_ADMIN_FALLBACK', ADMIN_EMAIL, adminSubject, JSON.stringify(quote, null, 2));
-    logEmailLocally('2_CLIENT_FALLBACK', CLIENT_EMAIL, adminSubject, JSON.stringify(quote, null, 2));
+    logEmailLocally('1_ADMIN_FALLBACK', adminEmail, adminSubject, JSON.stringify(quote, null, 2));
+    logEmailLocally('2_CLIENT_FALLBACK', clientEmail, adminSubject, JSON.stringify(quote, null, 2));
     logEmailLocally('3_USER_FALLBACK', quote.email, userSubject, `Auto-reply fallback to ${quote.email}`);
     return true;
   }
@@ -248,10 +262,16 @@ export async function sendContactNotification(contact: ContactPayload): Promise<
     </div>
   `;
 
+  const adminEmail = getAdminEmail();
+  const clientEmail = getClientEmail();
+  const businessRecipients = getBusinessRecipients();
+  const mailFrom = getMailFrom();
+  const replyTo = getReplyTo();
+
   if (!hasValidCredentials()) {
     console.log('[EmailService] SMTP credentials contain placeholder password (**********). Safely queued 3-way contact dispatch to local outbox (logs/email-outbox.log).');
-    logEmailLocally('1_ADMIN_CONTACT', ADMIN_EMAIL, adminSubject, JSON.stringify(contact, null, 2));
-    logEmailLocally('2_CLIENT_CONTACT', CLIENT_EMAIL, adminSubject, JSON.stringify(contact, null, 2));
+    logEmailLocally('1_ADMIN_CONTACT', adminEmail, adminSubject, JSON.stringify(contact, null, 2));
+    logEmailLocally('2_CLIENT_CONTACT', clientEmail, adminSubject, JSON.stringify(contact, null, 2));
     logEmailLocally('3_USER_CONTACT_ACK', contact.email, userSubject, `Auto-reply sent to ${contact.name} (${contact.email})`);
     return true;
   }
@@ -262,7 +282,7 @@ export async function sendContactNotification(contact: ContactPayload): Promise<
     // 1 & 2: Send to Admin and Client (reply responds to contact person)
     await client.sendMail({
       from: mailFrom,
-      to: BUSINESS_RECIPIENTS,
+      to: businessRecipients,
       replyTo: contact.email,
       subject: adminSubject,
       html: adminHtml
@@ -273,7 +293,7 @@ export async function sendContactNotification(contact: ContactPayload): Promise<
       await client.sendMail({
         from: mailFrom,
         to: contact.email,
-        replyTo: businessReplyTo,
+        replyTo: replyTo,
         subject: userSubject,
         html: userHtml
       });
@@ -282,8 +302,8 @@ export async function sendContactNotification(contact: ContactPayload): Promise<
     return true;
   } catch (err) {
     console.error('[EmailService] SMTP contact send error (gracefully falling back to local log):', err);
-    logEmailLocally('1_ADMIN_CONTACT_FALLBACK', ADMIN_EMAIL, adminSubject, JSON.stringify(contact, null, 2));
-    logEmailLocally('2_CLIENT_CONTACT_FALLBACK', CLIENT_EMAIL, adminSubject, JSON.stringify(contact, null, 2));
+    logEmailLocally('1_ADMIN_CONTACT_FALLBACK', adminEmail, adminSubject, JSON.stringify(contact, null, 2));
+    logEmailLocally('2_CLIENT_CONTACT_FALLBACK', clientEmail, adminSubject, JSON.stringify(contact, null, 2));
     logEmailLocally('3_USER_CONTACT_FALLBACK', contact.email, userSubject, `Auto-reply fallback to ${contact.email}`);
     return true;
   }
